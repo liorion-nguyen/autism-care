@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { UserProfile } from "../types/user";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { IUserProfile } from "../types/user";
 
 type UserState = {
-  user: UserProfile | null;
+  user: IUserProfile | null;
 };
 
 const initialState: UserState = {
@@ -13,8 +13,8 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setUser: (state) => {
-      state.user = { email: "admin@gmail.com" };
+    setUser: (state, actions: PayloadAction<IUserProfile>) => {
+      state.user = actions.payload;
     },
     removeUser: (state) => {
       state.user = null;

@@ -4,12 +4,16 @@ import type { TypedUseSelectorHook } from "react-redux";
 import { errorReducer } from "./error.reducer";
 import { loadingReducer } from "./loading.reducer";
 import { userReducer } from "./user.reducer";
+import { meetingReducer } from "./meeting.reducer";
+import { notiReducer } from "./notification.reducer";
 
 const store = configureStore({
   reducer: {
     error: errorReducer,
     loading: loadingReducer,
     user: userReducer,
+    meeting: meetingReducer,
+    noti: notiReducer,
   },
 });
 

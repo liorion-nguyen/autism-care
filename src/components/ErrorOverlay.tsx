@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { AlertDialog, Button, Center } from "native-base";
+import { AlertDialog, Button } from "native-base";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { removeError } from "../store/error.reducer";
