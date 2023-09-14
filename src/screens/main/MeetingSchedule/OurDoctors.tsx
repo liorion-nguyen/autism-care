@@ -47,7 +47,8 @@ const OurDoctors = ({ navigation }: Props) => {
           doctorName={item.fullname}
           degree={item.degree!}
           onPress={() => {
-            navigation.navigate("BookingForm", { doctor: item });
+            // navigation.navigate("BookingForm", { doctor: item });
+            navigation.navigate("DoctorProfile", { doctor: item });
           }}
         />
       ))}

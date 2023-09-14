@@ -7,6 +7,7 @@ import OurDoctors from "../screens/main/MeetingSchedule/OurDoctors";
 import Booking from "../screens/main/MeetingSchedule/Booking";
 import { useTheme } from "native-base";
 import BookingForm from "../screens/main/MeetingSchedule/BookingForm";
+import DoctorProfile from "../screens/main/DoctorProfile";
 
 const Stack = createStackNavigator<MeetingStackParams>();
 
@@ -26,6 +27,7 @@ const MeetingStack = () => {
       <Stack.Screen name="MeetingSchedule" component={MeetingSchedule} />
       <Stack.Screen name="OurDoctors" component={OurDoctors} />
       <Stack.Screen name="Booking" component={Booking} />
+      <Stack.Screen name="DoctorProfile" component={DoctorProfile} />
       <Stack.Screen name="BookingForm" component={BookingForm} />
     </Stack.Navigator>
   );

@@ -18,7 +18,7 @@ import { IUserProfile, EUserRole } from "../types/user";
 type Props = {
   _stack?: IStackProps;
   user: IUserProfile;
-  createdAt: any;
+  createdAt?: any;
 };
 
 const PostOwner = ({ _stack, user, createdAt }: Props) => {

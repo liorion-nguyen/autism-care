@@ -30,6 +30,9 @@ export type HomeStackParams = {
 export type MeetingStackParams = {
   MeetingSchedule: undefined;
   OurDoctors: undefined;
+  DoctorProfile: {
+    doctor: IUserProfile;
+  };
   Booking: undefined;
   BookingForm: {
     doctor: IUserProfile;

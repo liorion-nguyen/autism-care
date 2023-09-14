@@ -20,8 +20,13 @@ export interface IUserProfile {
   role: EUserRole;
   avatarUrl?: string;
   avatarName?: string;
+
+  // For Doctor
   degree?: string;
+  position?: string;
+  intro?: string[];
   expertises?: string[];
+  services?: string[];
 }
 
 const userRef = collection(firebaseDb, "users");
