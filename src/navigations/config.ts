@@ -6,7 +6,7 @@ export type BottomTabsParams = {
   MeetingStack: undefined;
   Setting: undefined;
   Notification: undefined;
-  Chat: undefined;
+  PlayMusic: undefined;
   HistoryStack: undefined;
 };
 

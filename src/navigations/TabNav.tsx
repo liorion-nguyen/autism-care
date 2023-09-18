@@ -4,7 +4,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Notification from "../screens/main/Notification";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useTheme } from "native-base";
-import Chat from "../screens/auth/Chat";
 import HomeStack from "./HomeStack";
 import MeetingStack from "./MeetingStack";
 import { BottomTabsParams } from "./config";
@@ -13,7 +12,7 @@ import HistoryStack from "./HistoryStack";
 import * as Notifications from "expo-notifications";
 import { useAppDispatch, useAppSelector } from "../store";
 import { removeNoti } from "../store/notification.reducer";
-import { useNavigation } from "@react-navigation/native";
+import PlayMusic from "../screens/main/PlayMusic";
 
 const Tab = createBottomTabNavigator<BottomTabsParams>();
 
@@ -30,16 +29,19 @@ Notifications.setNotificationHandler({
 const TabNav = () => {
   const { colors } = useTheme();
   const { isNoti } = useAppSelector((state) => state.noti);
-  
+
   const dispatch = useAppDispatch();
   function scheduleNotificationHandler() {
     Notifications.scheduleNotificationAsync({
       content: {
         title: "Bạn có thông báo mới",
         body: "Hãy vào xem",
+        data: {
+          username: "tuanna",
+        },
       },
       trigger: {
-        seconds: 1,
+        seconds: 0.2,
       },
     });
   }
@@ -97,7 +99,6 @@ const TabNav = () => {
           ),
         }}
       />
-
       <Tab.Screen
         name="HistoryStack"
         component={HistoryStack}
@@ -105,6 +106,17 @@ const TabNav = () => {
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="time-outline" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="PlayMusic"
+        component={PlayMusic}
+        options={{
+          headerShown: true,
+          title: "Heart Beat",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="musical-notes-outline" color={color} size={size} />
           ),
         }}
       />

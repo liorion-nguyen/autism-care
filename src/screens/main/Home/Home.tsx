@@ -79,14 +79,6 @@ const Home = ({ navigation }: Props) => {
             }}
             onPress={() => navigation.navigate("WritePost")}
           />
-          <IconButton
-            {...iconBtnProps}
-            _icon={{
-              as: Ionicons,
-              name: "search-outline",
-              color: "#373737",
-            }}
-          />
         </Row>
       </Row>
       <Divider bg="coolGray.400" h={0.3} />
