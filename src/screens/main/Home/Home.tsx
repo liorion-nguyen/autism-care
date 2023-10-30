@@ -43,6 +43,7 @@ const Home = ({ navigation }: Props) => {
       if (focused && refresh) loadData();
     }, [focused])
   );
+  
 
   React.useEffect(() => {
     const unsubscribe = navigation.addListener("blur", () => {

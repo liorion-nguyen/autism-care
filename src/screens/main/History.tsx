@@ -26,7 +26,7 @@ const History = ({ navigation }: Props) => {
       async function loadPosts() {
         try {
           dispatch(setLoading());
-          const ownPosts = await getPosts(user!.phone, where("user.phone", "==", user?.phone));
+          const ownPosts = await getPosts(user!.phone, where("user", "==", user?.phone));
           setPosts(ownPosts);
         } catch (err) {
           Alert.alert("Thông báo", (err as any).message);

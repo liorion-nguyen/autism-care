@@ -6,7 +6,7 @@ import { IUserProfile } from "./user";
 
 export interface IMeeting {
   id?: string;
-  doctor: IUserProfile;
+  doctor: IUserProfile | string;
   member?: null | IUserProfile;
   avai: boolean;
   datetime: Date;

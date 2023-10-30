@@ -60,16 +60,15 @@ const WritePost = ({ navigation }: Props) => {
         imageUrl = result.imageUrl;
       }
       const docData: IPost = {
-        user: {
-          phone: user!.phone,
-        },
+        user: user!.phone,
         content,
-        createdAt: new Date(),
+        createdAt: new Date().toISOString(),
       };
       if (imageUrl) {
         docData["imageUrl"] = imageUrl;
       }
       await addDoc(collection(firebaseDb, "posts"), docData);
+
       navigation.navigate("Home");
     } catch (err) {
       console.error(err);
@@ -93,10 +92,14 @@ const WritePost = ({ navigation }: Props) => {
     });
   }, []);
 
+  if (isLoading)
+    return (
+      <Center flex={1} bg="coolGray.700">
+        <LoadingOverlay />
+      </Center>
+    );
   return (
     <>
-      {isLoading && <LoadingOverlay />}
-
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <ScrollView bg="coolGray.700" flex="1" showsVerticalScrollIndicator={false}>
           <Column bg="coolGray.700" p="4" space="8" flex="1">

@@ -21,13 +21,12 @@ const PostCard = ({ mt, post }: Props) => {
   function goPostDetail() {
     navigation.navigate("PostDetail", { post });
   }
-
   async function onReactPost() {
     await onReact(user!.phone, post.id!);
     if (!post.userReacted)
       await createNoti({
         fromUser: user!.phone,
-        toUser: post.user.phone,
+        toUser: (post.user as IUserProfile).phone,
         content: "Đã thích bài viết của bạn",
         createdAt: new Date(),
       });

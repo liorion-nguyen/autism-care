@@ -7,11 +7,7 @@ import { countComments } from "./comments";
 
 export interface IPost {
   id?: string;
-  user:
-    | {
-        phone: string;
-      }
-    | IUserProfile;
+  user: string | IUserProfile;
   content: string;
   imageUrl?: string;
   createdAt: any;
@@ -28,11 +24,11 @@ export async function getPosts(userId: string, ...filters: QueryConstraint[]) {
   // Get post and sort base on createdAt
   const postsLoaded = querySnapshot.docs
     .map((doc) => ({ ...doc.data(), id: doc.id } as IPost))
-    .sort((a, b) => moment(b.createdAt.toDate()).diff(a.createdAt.toDate()));
+    .sort((a, b) => moment(b.createdAt).diff(a.createdAt));
 
   // Attach User Information
   const users = await Promise.all(
-    postsLoaded.map((post) => getDoc(doc(firebaseDb, "users", post.user.phone)))
+    postsLoaded.map((post) => getDoc(doc(firebaseDb, "users", post.user as string)))
   );
   const reacts = await Promise.all(postsLoaded.map((post) => countReact(post.id!)));
   const ncomments = await Promise.all(postsLoaded.map((post) => countComments(post.id!)));
@@ -45,6 +41,6 @@ export async function getPosts(userId: string, ...filters: QueryConstraint[]) {
         react: reacts[idx].data().count,
         userReacted: userReacteds[idx],
         ncomments: ncomments[idx].data().count,
-      } as any)
+      } as IPost)
   );
 }

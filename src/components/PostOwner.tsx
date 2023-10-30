@@ -22,6 +22,8 @@ type Props = {
 };
 
 const PostOwner = ({ _stack, user, createdAt }: Props) => {
+  // console.log("====", user.fullname, user.role, user.phone);
+
   return (
     <Row space="3" {..._stack}>
       {user?.avatarUrl ? (
@@ -41,7 +43,7 @@ const PostOwner = ({ _stack, user, createdAt }: Props) => {
           )}
         </Row>
         <Row space="2" alignItems="center">
-          <Text color="coolGray.500">{moment(createdAt.toDate()).format("DD MMM YYYY")}</Text>
+          <Text color="coolGray.500">{moment(createdAt).format("DD MMM YYYY")}</Text>
           <Icon as={Ionicons} name="ellipse" color="coolGray.500" size="2xs" />
           <Icon as={Ionicons} name="globe-outline" color="coolGray.500" size="sm" />
         </Row>

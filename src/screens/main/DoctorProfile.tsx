@@ -10,6 +10,7 @@ type Props = StackScreenProps<MeetingStackParams, "DoctorProfile">;
 
 const DoctorProfile = ({ navigation, route }: Props) => {
   const { doctor } = route.params;
+
   return (
     <Column flex="1" bg="coolGray.700" py="4" space="4">
       {/* Avatar */}
@@ -24,7 +25,9 @@ const DoctorProfile = ({ navigation, route }: Props) => {
           </Column>
         </Row>
         <Column px="4">
-          <FormButton>Tiếp</FormButton>
+          <FormButton onPress={() => navigation.navigate("BookingForm", { doctor })}>
+            Tiếp
+          </FormButton>
         </Column>
         {/* Body */}
         <DoctorInfoTabs doctor={doctor} />

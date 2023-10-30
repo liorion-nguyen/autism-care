@@ -4,12 +4,19 @@ import { View, useWindowDimensions } from "react-native";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import { IUserProfile } from "../types/user";
 
+let lastId = 0;
+
+function getId(prefix = "id") {
+  lastId++;
+  return `${prefix}${lastId}`;
+}
+
 type WrapperInfoProps = { contents: string[] };
 const WrapperInfo = ({ contents }: WrapperInfoProps) => {
   return (
     <Column flex="1" p="4" space="3">
       {contents.map((text) => (
-        <Text color="white" key={text}>
+        <Text color="white" key={getId()}>
           {text}
         </Text>
       ))}

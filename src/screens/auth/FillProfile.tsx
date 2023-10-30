@@ -80,12 +80,11 @@ const FillProfile = ({ navigation, route }: Props) => {
       dispatch(setLoading());
       const userDoc = doc(firebaseDb, "users", user!.phone);
       const docData = {
-        ...user!,
         ...formData,
         birthday: formData.birthday.toISOString(),
       };
       await updateDoc(userDoc, docData);
-      dispatch(setUser(docData));
+      dispatch(setUser({ ...user!, ...docData }));
       Alert.alert("Thông báo", "Cập nhật thông tin thành công");
     } catch (err) {
       const { message } = err as ValidationError;
