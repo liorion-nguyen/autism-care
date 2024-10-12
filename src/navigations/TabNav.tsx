@@ -114,14 +114,14 @@ const TabNav = () => {
         name="DocumentStack"
         component={DocumentStack}
         options={{
-          // headerShown: true,
+          headerShown: false,
           title: "Documents",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="document-outline" color={color} size={size} />
           ),
         }}
       />
-      {/* <Tab.Screen
+      <Tab.Screen
         name="Notification"
         component={Notification}
         options={{
@@ -134,7 +134,7 @@ const TabNav = () => {
             <Ionicons name="notifications-outline" color={color} size={size} />
           ),
         }}
-      /> */}
+      />
       <Tab.Screen
         name="Setting"
         component={Setting}

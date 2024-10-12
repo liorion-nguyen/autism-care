@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
+import WebView from 'react-native-webview';
 
 type RootStackParamList = {
   Document: undefined;
@@ -12,11 +13,9 @@ type Props = StackScreenProps<RootStackParamList, 'PDFViewer'>;
 
 const PDFViewer = ({ route }: Props) => {
   const { url } = route.params;
-  console.log(url);
-  
   return (
     <View style={styles.container}>
-      {/* <WebView source={{ uri: url, cache: true }} style={styles.webview} /> */}
+      <WebView source={{ uri: url }} style={styles.webview} />
     </View>
   );
 };
