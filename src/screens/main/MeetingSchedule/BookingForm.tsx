@@ -47,7 +47,7 @@ const BookingForm = ({ navigation, route }: Props) => {
               datetime: meetingDoc.data().datetime.toDate(),
             } as IMeeting)
         );
-        console.log(meetingLoaded);
+        console.log("meetingLoaded: ", meetingLoaded);
 
         setMeetingSchedule(meetingLoaded);
       } catch (err) {

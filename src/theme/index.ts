@@ -6,16 +6,16 @@ import { extendTheme } from "native-base";
 
 export const colorTheme = {
   primary: {
-    50: "#F8FDFE",
-    100: "#E3F5FC",
-    200: "#CDEDFA",
-    300: "#B7E6F8",
-    400: "#A1DEF5",
-    500: "#8CD7F3",
-    600: "#76CFF1",
-    700: "#5DA3BE",
-    800: "#44778A",
-    900: "#2B4B57",
+    50: "#E3F2FD", // Light Blue
+    100: "#BBDEFB", // Light Blue
+    200: "#90CAF9", // Light Blue
+    300: "#64B5F6", // Blue
+    400: "#42A5F5", // Blue
+    500: "#2196F3", // Blue
+    600: "#1E88E5", // Blue
+    700: "#1976D2", // Darker Blue
+    800: "#1565C0", // Dark Blue
+    900: "#0D47A1", // Deep Blue
   },
 };
 const appTheme = extendTheme({ colors: colorTheme });

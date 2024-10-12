@@ -12,7 +12,8 @@ import HistoryStack from "./HistoryStack";
 import * as Notifications from "expo-notifications";
 import { useAppDispatch, useAppSelector } from "../store";
 import { removeNoti } from "../store/notification.reducer";
-import PlayMusic from "../screens/main/PlayMusic";
+import Document from "../screens/main/Document";
+import DocumentStack from "./DocumentStack";
 
 const Tab = createBottomTabNavigator<BottomTabsParams>();
 
@@ -110,17 +111,17 @@ const TabNav = () => {
         }}
       />
       <Tab.Screen
-        name="PlayMusic"
-        component={PlayMusic}
+        name="DocumentStack"
+        component={DocumentStack}
         options={{
-          headerShown: true,
-          title: "Heart Beat",
+          // headerShown: true,
+          title: "Documents",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="musical-notes-outline" color={color} size={size} />
+            <Ionicons name="document-outline" color={color} size={size} />
           ),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Notification"
         component={Notification}
         options={{
@@ -133,7 +134,7 @@ const TabNav = () => {
             <Ionicons name="notifications-outline" color={color} size={size} />
           ),
         }}
-      />
+      /> */}
       <Tab.Screen
         name="Setting"
         component={Setting}
